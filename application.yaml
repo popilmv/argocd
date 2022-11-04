@@ -4,10 +4,19 @@ metadata:
   name:  myapp
   namespace: argocd
 spec:
-  project: app
+  project: golang
   source:
     repoURL: https://github.com/popilmv/argocd.git
     targetRevision: HEAD
     path: ./ 
   destination:
     server: https://kubernetes.default.svc
+    namespace: myspace
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+      automated:
+        selfHeal: true
+        prune: true
