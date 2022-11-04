@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
-  namespace: myspace
+  name: my-dev
+  namespace: myapp
   labels:
     app: my-golang-deploy
     release: beta

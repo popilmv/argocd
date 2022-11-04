@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
-  namespace: myspace
+  name: my-stg
+  namespace: flux-stg
   labels:
-    app: my-golang-deploy
+    app: my-golang-stg
     release: beta
 spec:
   selector:
@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: golang-web
-          image: docker.io/marina1327/task-01:13.13.14 # {"$imagepolicy": "flux-system:main"}
+          image: docker.io/marina1327/task-01:stg-1.28.7 # {"$imagepolicy": "flux-system:stg"}
           ports:
             - containerPort: 8080

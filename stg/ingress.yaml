@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: my-ingress13
-  namespace: myspace
+  namespace: flux-stg
   labels:
     name: my-ingress13
   annotations:
@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: argocd-m.int.itoutposts.com
+  - host: stg-m.int.itoutposts.com
     http:
       paths:
       - pathType: Prefix
@@ -22,7 +22,7 @@ spec:
               number: 80
   tls:
   - hosts:
-    - argocd-m.int.itoutposts.com
+    - stg-m.int.itoutposts.com
     secretName: ssl-lets
 
           
