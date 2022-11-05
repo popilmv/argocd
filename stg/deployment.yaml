@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-stg
-  namespace: flux-stg
+  namespace: stg
   labels:
     app: my-golang-stg
     release: beta
