@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-ingress13
-  namespace: myapp
+  name: my-ingress-dev
+  namespace: myspace
   labels:
-    name: my-ingress13
+    name: my-ingress-dev
   annotations:
     cert-manager.io/issuer: letsencrypt
 spec:
@@ -14,16 +14,13 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: /dev
         backend:
           service:
             name: my-pod-service  
             port: 
               number: 80
-  tls:
-  - hosts:
-    - dev-m.int.itoutposts.com
-    secretName: ssl-lets
+
 
           
           
