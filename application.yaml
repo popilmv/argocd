@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name:  app
+  name: app
   namespace: argocd
 #   annotations:
 #     argocd-image-updater.argoproj.io/image-list: myalias=docker.io/marina1327/task-01
@@ -47,7 +47,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name:  dev
+  name: dev
   namespace: argocd
 spec:
   project: default
@@ -71,7 +71,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name:  stg
+  name: stg
   namespace: argocd
 spec:
   project: default
