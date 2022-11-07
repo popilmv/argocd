@@ -5,21 +5,17 @@ metadata:
   name: app
   namespace: argocd
 #   annotations:
-#     argocd-image-updater.argoproj.io/image-list: myalias=docker.io/marina1327/task-01
-#     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
-#     argocd-image-updater.argoproj.io/git-branch: main
-#     argocd-image-updater.argoproj.io/myalias.force-update: "true"
+
   annotations:
-    argocd-image-updater.argoproj.io/php.allow-tags: regexp:v\d+\.\d+\.\d+-rc.*$
-    argocd-image-updater.argoproj.io/php.update-strategy: latest
-    argocd-image-updater.argoproj.io/media-manager.allow-tags: regexp:v\d+\.\d+\.\d+-rc.*$
-    argocd-image-updater.argoproj.io/media-manager.update-strategy: latest
-    argocd-image-updater.argoproj.io/frontend.allow-tags: regexp:v\d+\.\d+\.\d+-rc.*$
-    argocd-image-updater.argoproj.io/frontend.update-strategy: latest
-    argocd-image-updater.argoproj.io/prerender.allow-tags: regexp:v\d+\.\d+\.\d+-rc.*$
+    argocd-image-updater.argoproj.io/image-list: my=docker.io/marina1327/task-01
+    # argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    # argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/my.allow-tags: regexp:^\d{1,2}\.\d{1,2}\.\d{1,2}$
+    argocd-image-updater.argoproj.io/my.force-update: "true"
+    argocd-image-updater.argoproj.io/my.update-strategy: latest
     argocd-image-updater.argoproj.io/prerender.update-strategy: latest
-    argocd-image-updater.argoproj.io/write-back-method: git:repocreds
-    argocd-image-updater.argoproj.io/git-branch: master
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/write-back-target: kustomization
 spec:
   project: default
@@ -49,6 +45,17 @@ kind: Application
 metadata:
   name: dev
   namespace: argocd
+annotations:
+  argocd-image-updater.argoproj.io/image-list: my=docker.io/marina1327/task-01
+  # argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+  # argocd-image-updater.argoproj.io/git-branch: main
+  argocd-image-updater.argoproj.io/my.allow-tags: regexp:^\d{1,2}\.\d{1,2}\.\d{1,2}$
+  argocd-image-updater.argoproj.io/my.force-update: "true"
+  argocd-image-updater.argoproj.io/my.update-strategy: latest
+  argocd-image-updater.argoproj.io/prerender.update-strategy: latest
+  argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+  argocd-image-updater.argoproj.io/git-branch: main
+  argocd-image-updater.argoproj.io/write-back-target: kustomization
 spec:
   project: default
   source:
@@ -73,6 +80,17 @@ kind: Application
 metadata:
   name: stg
   namespace: argocd
+annotations:
+  argocd-image-updater.argoproj.io/image-list: my=docker.io/marina1327/task-01
+  # argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+  # argocd-image-updater.argoproj.io/git-branch: main
+  argocd-image-updater.argoproj.io/my.allow-tags: regexp:^\d{1,2}\.\d{1,2}\.\d{1,2}$
+  argocd-image-updater.argoproj.io/my.force-update: "true"
+  argocd-image-updater.argoproj.io/my.update-strategy: latest
+  argocd-image-updater.argoproj.io/prerender.update-strategy: latest
+  argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+  argocd-image-updater.argoproj.io/git-branch: main
+  argocd-image-updater.argoproj.io/write-back-target: kustomization
 spec:
   project: default
   source:
