@@ -12,7 +12,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/"
+        path: "/app"
         backend:
           service:
             name: my-pod-service  
