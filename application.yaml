@@ -88,3 +88,9 @@ spec:
       selfHeal: true
       prune: true
 ---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+image: docker.io/marina1327/task
+newTag: 01:13.13.14
