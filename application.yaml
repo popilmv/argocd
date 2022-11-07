@@ -9,6 +9,18 @@ metadata:
 #     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
 #     argocd-image-updater.argoproj.io/git-branch: main
 #     argocd-image-updater.argoproj.io/myalias.force-update: "true"
+  annotations:
+    argocd-image-updater.argoproj.io/php.allow-tags: regexp:v\d+\.\d+\.\d+-rc.*$
+    argocd-image-updater.argoproj.io/php.update-strategy: latest
+    argocd-image-updater.argoproj.io/media-manager.allow-tags: regexp:v\d+\.\d+\.\d+-rc.*$
+    argocd-image-updater.argoproj.io/media-manager.update-strategy: latest
+    argocd-image-updater.argoproj.io/frontend.allow-tags: regexp:v\d+\.\d+\.\d+-rc.*$
+    argocd-image-updater.argoproj.io/frontend.update-strategy: latest
+    argocd-image-updater.argoproj.io/prerender.allow-tags: regexp:v\d+\.\d+\.\d+-rc.*$
+    argocd-image-updater.argoproj.io/prerender.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git:repocreds
+    argocd-image-updater.argoproj.io/git-branch: master
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
 spec:
   project: default
   source:
@@ -20,31 +32,32 @@ spec:
     namespace: myspace
 
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true
+    automated: {}
+    # syncOptions:
+    #   - CreateNamespace=true
+    # automated:
+    #   selfHeal: true
+    #   prune: true
 ---
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name:  dev
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/popilmv/argocd.git
-    targetRevision: HEAD
-    path: dev 
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: myspace-dev
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name:  dev
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://github.com/popilmv/argocd.git
+#     targetRevision: HEAD
+#     path: dev 
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: myspace-dev
 
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true
----
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#     automated:
+#       selfHeal: true
+#       prune: true
+# ---
